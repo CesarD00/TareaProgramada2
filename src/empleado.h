@@ -4,6 +4,7 @@
 #include<string>
 #include<vector>
 #include<empleado.h>
+#include<persona.h>
 
 using namespace std;
 
@@ -11,10 +12,7 @@ class Empleado {
     
     protected:
     int id;
-    string nombre;
-    string apellido;
-    string email;
-    int tipoEmpleado;
+    Persona* datosPersona;
     Empleado* supervisor;
     vector<Empleado*> empleadosASupervisar;
 

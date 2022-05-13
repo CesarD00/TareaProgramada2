@@ -1,13 +1,16 @@
 #ifndef EMPLEADONOMINA_H
 #define EMPLEADONOMINA_H
 
-#include "empleado.h"
+#include "persona.h"
 
-class EmpleadoNomina : public Empleado{
+class EmpleadoNomina : public Persona{
 
     float pagoMensualBruto;
 
-    public:   
+    public:
+    EmpleadoNomina(string nombreEmpleado, string apellidoEmpleado, string emailEmpleado, float pagoBrutoMensual);   
+
+    virtual float calcularMontoNeto();
 
 };
 
