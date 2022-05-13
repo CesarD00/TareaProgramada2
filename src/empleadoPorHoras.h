@@ -1,7 +1,14 @@
 #ifndef EMPLEADOPORHORAS_H
 #define EMPLEADOPORHORAS_H
 
-class EmpleadoPorHoras {
+#include "empleado.h"
+
+class EmpleadoPorHoras : public Empleado{
+    
+    float montoPorHora;
+    float horasLaboradas;
+
+    public:
 
 };
 

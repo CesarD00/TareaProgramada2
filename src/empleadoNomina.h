@@ -1,7 +1,13 @@
 #ifndef EMPLEADONOMINA_H
 #define EMPLEADONOMINA_H
 
-class EmpleadoNomina {
+#include "empleado.h"
+
+class EmpleadoNomina : public Empleado{
+
+    float pagoMensualBruto;
+
+    public:   
 
 };
 
