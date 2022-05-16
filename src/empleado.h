@@ -3,8 +3,7 @@
 
 #include<string>
 #include<vector>
-#include<empleado.h>
-#include<persona.h>
+#include "persona.h"
 
 using namespace std;
 
@@ -17,6 +16,13 @@ class Empleado {
     vector<Empleado*> empleadosASupervisar;
 
     public:
+    Empleado(int unaId, Persona* datosPersonales);
+    ~Empleado();
+
+    void asignarSupervisor(Empleado* unSupervisor);
+    void agregarEmpleadoASupervisar(Empleado* unEmpleado);
+    int obtenerId();
+    Persona* obtenerDatosPersona();
     
 
 };
