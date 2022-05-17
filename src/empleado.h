@@ -22,6 +22,8 @@ class Empleado {
     void asignarSupervisor(Empleado* unSupervisor);
     void agregarEmpleadoASupervisar(Empleado* unEmpleado);
     int obtenerId();
+    Empleado* obtenerSupervisor();
+    vector<Empleado*> obtenerEmpleadosASupervisar();
     Persona* obtenerDatosPersona();
     
 
