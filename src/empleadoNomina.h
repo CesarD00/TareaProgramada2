@@ -8,7 +8,9 @@ class EmpleadoNomina : public Persona{
     float pagoMensualBruto;
 
     public:
-    EmpleadoNomina(string nombreEmpleado, string apellidoEmpleado, string emailEmpleado, float pagoBrutoMensual);   
+    EmpleadoNomina(string nombreEmpleado, string apellidoEmpleado, string emailEmpleado, float unPagoMensual);  
+    EmpleadoNomina(string nombreEmpleado, string apellidoEmpleado, string emailEmpleado);   
+    void asignarPagoMensualBruto(float pagoBrutoMensual);
 
     virtual float calcularMontoNeto();
 

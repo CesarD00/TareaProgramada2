@@ -1,8 +1,11 @@
 #include "empleado.h"
 #include "persona.h"
 
-Empleado::Empleado(int unaId, Persona* datosPersonales) {
+#include<iostream>
+
+Empleado::Empleado(int unaId, int unTipo, Persona* datosPersonales) {
     this->id = unaId;
+    this->tipo = unTipo;
     this->datosPersona = datosPersonales;
 }
 
@@ -14,6 +17,10 @@ Empleado::~Empleado() {
 
 int Empleado::obtenerId() {
     return this->id;
+}
+
+int Empleado::obtenerTipo() {
+    return this->tipo;
 }
 
 Persona* Empleado::obtenerDatosPersona() {
@@ -34,4 +41,13 @@ void Empleado::asignarSupervisor(Empleado* unEmpleado) {
 
 void Empleado::agregarEmpleadoASupervisar(Empleado* unEmpleado) {
     this->empleadosASupervisar.push_back(unEmpleado);
+}
+
+
+ostream& operator << (ostream &o, const Empleado* empleado) {
+    o << empleado->id << "," << empleado->datosPersona->obtenerNombre() << "," << empleado->datosPersona->obtenerApellido() << "," <<
+        empleado->supervisor->datosPersona->obtenerNombre() << "," << empleado->supervisor->datosPersona->obtenerApellido() << "," <<
+        empleado->datosPersona->calcularMontoNeto() << endl;  
+
+    return o;    
 }

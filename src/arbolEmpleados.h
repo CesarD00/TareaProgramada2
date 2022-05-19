@@ -12,10 +12,22 @@ class ArbolEmpleados {
     map<int, Empleado*> indiceEmpleados;
 
     public:
-    ArbolEmpleados(int idDirector, Persona* director);
+    ArbolEmpleados(int idDirector, int unTipo, Persona* director);
+    ArbolEmpleados();
     ~ArbolEmpleados();
-    void agregarEmpleado(int unId, Persona* unaPersona, int idSupervisor);
+    void agregarDirector(Empleado* unDirector);
+    void agregarEmpleado(int unId, int unTipo, Persona* unaPersona, int idSupervisor);
+    void agregarEmpleado(Empleado* nuevoEmpleado);
     Empleado* obtenerEmpleado(int unaId);
+    map<int, Empleado*> obtenerTodosEmpleados();
+
+    void toStreamEntradaNomina(istream &i);
+    void toStreamEntradaHoras(istream &i);
+
+    friend istream& operator >> (istream &i, ArbolEmpleados* jerarquiaEmpleados);
+    friend ostream& operator << (ostream &o, const ArbolEmpleados* jerarquiaEmpleados);
+
+    
 
 };
 

@@ -9,24 +9,26 @@ using namespace std;
 
 class Empleado {
     
-    protected:
     int id;
+    int tipo;
     Persona* datosPersona;
     Empleado* supervisor;
     vector<Empleado*> empleadosASupervisar;
 
     public:
-    Empleado(int unaId, Persona* datosPersonales);
+    Empleado(int unaId, int unTipo, Persona* datosPersonales);
     ~Empleado();
 
     void asignarSupervisor(Empleado* unSupervisor);
     void agregarEmpleadoASupervisar(Empleado* unEmpleado);
     int obtenerId();
+    int obtenerTipo();
     Empleado* obtenerSupervisor();
     vector<Empleado*> obtenerEmpleadosASupervisar();
     Persona* obtenerDatosPersona();
-    
 
+    friend ostream& operator << (ostream &o, const Empleado* empleado);
+    
 };
 
 

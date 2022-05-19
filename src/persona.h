@@ -15,6 +15,14 @@ class Persona {
     public:
     virtual float calcularMontoNeto() = 0;
 
+    string obtenerNombre(){
+        return this->nombre;
+    }
+
+    string obtenerApellido(){
+        return this->apellido;
+    }
+
 };
 
 

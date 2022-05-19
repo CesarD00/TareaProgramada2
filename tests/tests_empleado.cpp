@@ -10,7 +10,7 @@ namespace {
 
         // Arange - se configura el escenario
         EmpleadoNomina* persona = new EmpleadoNomina("César", "Díaz", "cesardiaz@mail.mail", 4000);
-        Empleado* nuevoEmpleado = new Empleado(2, persona);
+        Empleado* nuevoEmpleado = new Empleado(2, 1, persona);
 
         // Act - se ejecuta la operación
         int idActual = nuevoEmpleado->obtenerId();
@@ -32,8 +32,8 @@ namespace {
 
         // Arange - se configura el escenario
         EmpleadoNomina* personaSupervisor = new EmpleadoNomina("Alejandro", "Fernández", "alejfernandez@mail.mail", 4000);
-        Empleado* supervisor = new Empleado(1, personaSupervisor);
-        Empleado* nuevoEmpleado = new Empleado(2, new ProfesionalPorHoras("César", "Díaz", "cesardiaz@mail.mail", 50, 30));
+        Empleado* supervisor = new Empleado(1, 1, personaSupervisor);
+        Empleado* nuevoEmpleado = new Empleado(2, 2, new ProfesionalPorHoras("César", "Díaz", "cesardiaz@mail.mail", 50, 30));
 
         // Act - se ejecuta la operación
 
@@ -58,8 +58,8 @@ namespace {
         /// AAA
 
         // Arange - se configura el escenario
-        Empleado* supervisor = new Empleado(1, new EmpleadoNomina("Alejandro", "Fernández", "alejfernandez@mail.mail", 4000));
-        Empleado* empleado = new Empleado(23, new ProfesionalPorHoras("Valeria", "Martínez", "valemart@mail.mail", 50, 45));
+        Empleado* supervisor = new Empleado(1, 1, new EmpleadoNomina("Alejandro", "Fernández", "alejfernandez@mail.mail", 4000));
+        Empleado* empleado = new Empleado(23, 2, new ProfesionalPorHoras("Valeria", "Martínez", "valemart@mail.mail", 50, 45));
 
         // Act - se ejecuta la operación
 
