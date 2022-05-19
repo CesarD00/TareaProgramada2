@@ -96,6 +96,34 @@ istream& operator >> (istream &i, ArbolEmpleados* jerarquiaEmpleados) {
     return i;        
 }
 
+ostream& operator << (ostream &o, const ArbolEmpleados* jerarquiaEmpleados) {
+    float subtotal {};
+    float monto {};
+    float totalImpuestos = 280;
+    float total {};
+    o << "ID_Empleado,Nombre_Completo,Nombre_Supervisor,Monto_Neto_A_Pagar" << endl;
+
+    for(const auto &empleado : jerarquiaEmpleados->indiceEmpleados) {
+        if(empleado.second->obtenerTipo() == 1){
+            totalImpuestos = totalImpuestos + static_cast< EmpleadoNomina * >(empleado.second->obtenerDatosPersona())->obtenerImpuestoRetencion();
+        }
+
+        monto = empleado.second->obtenerDatosPersona()->calcularMontoNeto();
+
+        o << empleado.second << monto << endl;
+
+        subtotal = subtotal + monto;
+    }
+
+    total = subtotal + totalImpuestos;
+
+    o << "Subtotal,Total_Impuestos_A_Retener,Total" << endl;
+    o << subtotal << "," << totalImpuestos << "," << total;
+
+    return o;
+
+}
+
 void ArbolEmpleados::toStreamEntradaNomina(istream &i, ArbolEmpleados* jerarquiaEmpleados) {
     string linea;
     int id;
@@ -108,32 +136,26 @@ void ArbolEmpleados::toStreamEntradaNomina(istream &i, ArbolEmpleados* jerarquia
 
         static_cast< EmpleadoNomina * >(jerarquiaEmpleados->indiceEmpleados.at(id)->obtenerDatosPersona())->asignarPagoMensualBruto(pago);
   
-    }
-        
+    }     
 }
 
-ostream& operator << (ostream &o, const ArbolEmpleados* jerarquiaEmpleados) {
-    float subtotal;
+void ArbolEmpleados::toStreamEntradaHoras(istream &i, ArbolEmpleados* jerarquiaEmpleados) {
+    string linea;
+    int id;
     float monto;
-    float totalImpuestos = 280;
-    float total;
-    o << "ID_Empleado,Nombre_Completo,Nombre_Supervisor,Monto_Neto_A_Pagar" << endl;
+    float horas;
+    
+    while(std::getline(i, linea)) {
+        istringstream streamLinea(linea);
 
-    for(const auto &empleado : jerarquiaEmpleados->indiceEmpleados) {
-        monto = empleado.second->obtenerDatosPersona()->calcularMontoNeto();
+        streamLinea >> id >> monto >> horas;
 
-        o << empleado.second << monto << endl;
-
-        subtotal += monto;
-    }
-
-    total = subtotal + totalImpuestos;
-
-    o << "Subtotal,Total_Impuestos_A_Retener,Total" << endl;
-    o << subtotal << "," << "280" << "," << total;
-
-    return o;
-
+        static_cast< ProfesionalPorHoras * >(jerarquiaEmpleados->indiceEmpleados.at(id)->obtenerDatosPersona())->asignarMontoPorHora(monto);
+        static_cast< ProfesionalPorHoras * >(jerarquiaEmpleados->indiceEmpleados.at(id)->obtenerDatosPersona())->asignarHorasLaboradas(horas);
+  
+    }    
 }
+
+
 
 

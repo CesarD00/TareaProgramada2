@@ -19,3 +19,11 @@ ProfesionalPorHoras::ProfesionalPorHoras(string nombreEmpleado, string apellidoE
 float ProfesionalPorHoras::calcularMontoNeto(){
     return this->montoPorHora*this->horasLaboradas;
 }
+
+void ProfesionalPorHoras::asignarMontoPorHora(float monto) {
+    this->montoPorHora = monto;    
+}
+
+void ProfesionalPorHoras::asignarHorasLaboradas(float horas) {
+    this->horasLaboradas = horas;
+}

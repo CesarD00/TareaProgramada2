@@ -22,7 +22,7 @@ namespace {
 
         string actual = salidaReporte.str();
         string esperado = string("ID_Empleado,Nombre_Completo,Nombre_Supervisor,Monto_Neto_A_Pagar\n") + 
-                            string("1,César Díaz,César Diaz,3720\n") +
+                            string("1,César Díaz,César Díaz,3720\n") +
                             string("2,Berny Calderón,César Díaz,2250\n") + 
                             string("Subtotal,Total_Impuestos_A_Retener,Total\n") + 
                             string("5970,280,6250");

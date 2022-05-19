@@ -21,6 +21,7 @@ void Reporte::generarReporte() {
 
     *(this->streamEntradaPersonas) >> jerarquiaEmpleados;
     jerarquiaEmpleados->toStreamEntradaNomina(*(this->streamEntradaNomina), jerarquiaEmpleados);
+    jerarquiaEmpleados->toStreamEntradaHoras(*(this->streamEntradaProfesionalHoras), jerarquiaEmpleados);
 
     *(this->streamSalidaReporte) << jerarquiaEmpleados;
 
