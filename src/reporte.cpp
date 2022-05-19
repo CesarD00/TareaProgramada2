@@ -12,11 +12,17 @@ Reporte::Reporte(istream* entradaPersonas, istream* entradaNomina, istream* entr
     this->streamSalidaReporte = salidaReporte;
 }
 
+Reporte::Reporte() {
+    
+}
+
 void Reporte::generarReporte() {
     ArbolEmpleados* jerarquiaEmpleados = new ArbolEmpleados();
 
-    ifstream ifs("personas.txt", std::ifstream::in);
-    ifs >> jerarquiaEmpleados;
+    *(this->streamEntradaPersonas) >> jerarquiaEmpleados;
+    jerarquiaEmpleados->toStreamEntradaNomina(*(this->streamEntradaNomina), jerarquiaEmpleados);
+
+    *(this->streamSalidaReporte) << jerarquiaEmpleados;
 
 
 }

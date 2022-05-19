@@ -14,6 +14,8 @@ class EmpleadoNomina : public Persona{
 
     virtual float calcularMontoNeto();
 
+    
+
 };
 
 

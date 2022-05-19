@@ -3,6 +3,7 @@
 
 #include "empleado.h"
 #include "persona.h"
+#include <istream>
 #include <map>
 
 class ArbolEmpleados {
@@ -17,12 +18,12 @@ class ArbolEmpleados {
     ~ArbolEmpleados();
     void agregarDirector(Empleado* unDirector);
     void agregarEmpleado(int unId, int unTipo, Persona* unaPersona, int idSupervisor);
-    void agregarEmpleado(Empleado* nuevoEmpleado);
+    void agregarEmpleado(Empleado* nuevoEmpleado, int idSupervisor);
     Empleado* obtenerEmpleado(int unaId);
     map<int, Empleado*> obtenerTodosEmpleados();
 
-    void toStreamEntradaNomina(istream &i);
-    void toStreamEntradaHoras(istream &i);
+    void toStreamEntradaNomina(istream &i, ArbolEmpleados* jerarquiaEmpleados);
+    void toStreamEntradaHoras(istream &i, ArbolEmpleados* jerarquiaEmpleados);
 
     friend istream& operator >> (istream &i, ArbolEmpleados* jerarquiaEmpleados);
     friend ostream& operator << (ostream &o, const ArbolEmpleados* jerarquiaEmpleados);

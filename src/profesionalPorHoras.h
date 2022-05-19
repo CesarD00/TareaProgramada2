@@ -15,6 +15,7 @@ class ProfesionalPorHoras : public Persona{
     void asignarHorasLaboradas(float horas);
 
     virtual float calcularMontoNeto();
+
 };
 
 

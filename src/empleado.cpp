@@ -45,9 +45,8 @@ void Empleado::agregarEmpleadoASupervisar(Empleado* unEmpleado) {
 
 
 ostream& operator << (ostream &o, const Empleado* empleado) {
-    o << empleado->id << "," << empleado->datosPersona->obtenerNombre() << "," << empleado->datosPersona->obtenerApellido() << "," <<
-        empleado->supervisor->datosPersona->obtenerNombre() << "," << empleado->supervisor->datosPersona->obtenerApellido() << "," <<
-        empleado->datosPersona->calcularMontoNeto() << endl;  
+    o << empleado->id << "," << empleado->datosPersona->obtenerNombre() << " " << empleado->datosPersona->obtenerApellido() << "," <<
+        empleado->supervisor->datosPersona->obtenerNombre() << " " << empleado->supervisor->datosPersona->obtenerApellido() << ",";  
 
     return o;    
 }
