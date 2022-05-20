@@ -7,6 +7,7 @@
 #include<istream>
 #include<sstream>
 #include<string>
+#include<iomanip>
 
 using namespace std;
 
@@ -99,26 +100,26 @@ istream& operator >> (istream &i, ArbolEmpleados* jerarquiaEmpleados) {
 ostream& operator << (ostream &o, const ArbolEmpleados* jerarquiaEmpleados) {
     float subtotal {};
     float monto {};
-    float totalImpuestos = 280;
+    float totalImpuestos {};
     float total {};
     o << "ID_Empleado,Nombre_Completo,Nombre_Supervisor,Monto_Neto_A_Pagar" << endl;
 
     for(const auto &empleado : jerarquiaEmpleados->indiceEmpleados) {
-        if(empleado.second->obtenerTipo() == 1){
-            totalImpuestos = totalImpuestos + static_cast< EmpleadoNomina * >(empleado.second->obtenerDatosPersona())->obtenerImpuestoRetencion();
-        }
-
         monto = empleado.second->obtenerDatosPersona()->calcularMontoNeto();
 
         o << empleado.second << monto << endl;
+
+        if(empleado.second->obtenerTipo() == 1){
+            totalImpuestos = totalImpuestos + static_cast< EmpleadoNomina * >(empleado.second->obtenerDatosPersona())->obtenerImpuestoRetencion();
+        }
 
         subtotal = subtotal + monto;
     }
 
     total = subtotal + totalImpuestos;
 
-    o << "Subtotal,Total_Impuestos_A_Retener,Total" << endl;
-    o << subtotal << "," << totalImpuestos << "," << total;
+    o << "\nSubtotal,Total_Impuestos_A_Retener,Total" << endl;
+    o << setprecision(2) << fixed << subtotal << "," << setprecision(2) << fixed << totalImpuestos << "," << setprecision(2) << fixed << total;
 
     return o;
 

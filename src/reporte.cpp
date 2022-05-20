@@ -25,5 +25,7 @@ void Reporte::generarReporte() {
 
     *(this->streamSalidaReporte) << jerarquiaEmpleados;
 
+    delete jerarquiaEmpleados;
+
 
 }
