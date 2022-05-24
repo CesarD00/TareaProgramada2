@@ -1,5 +1,5 @@
 #include "reporte.h"
-#include "arbolEmpleados.h"
+#include "planilla.h"
 #include <iostream>
 #include <fstream>
 
@@ -17,7 +17,7 @@ Reporte::Reporte() {
 }
 
 void Reporte::generarReporte() {
-    ArbolEmpleados* jerarquiaEmpleados = new ArbolEmpleados();
+    Planilla* jerarquiaEmpleados = new Planilla();
 
     *(this->streamEntradaPersonas) >> jerarquiaEmpleados;
     jerarquiaEmpleados->toStreamEntradaNomina(*(this->streamEntradaNomina), jerarquiaEmpleados);

@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "../src/arbolEmpleados.h"
+#include "../src/planilla.h"
 
 #include "../src/empleadoNomina.h"
 #include "../src/profesionalPorHoras.h"
@@ -11,7 +11,7 @@ namespace {
 
         // Arange - se configura el escenario
         EmpleadoNomina* director = new EmpleadoNomina("César", "Díaz", "cesardiaz@mail.mail", 4000);
-        ArbolEmpleados* empleados = new ArbolEmpleados(1, 1, director);
+        Planilla* empleados = new Planilla(1, 1, director);
 
         // Act - se ejecuta la operación
         Persona* actual = director;
@@ -28,7 +28,7 @@ namespace {
         /// AAA
 
         // Arange - se configura el escenario
-        ArbolEmpleados* empleados = new ArbolEmpleados(1, 1, new EmpleadoNomina("César", "Díaz", "cesardiaz@mail.mail", 4000));
+        Planilla* empleados = new Planilla(1, 1, new EmpleadoNomina("César", "Díaz", "cesardiaz@mail.mail", 4000));
         ProfesionalPorHoras* persona = new ProfesionalPorHoras("Alejandro", "Fernández", "alejfernandez@mail.mail", 50, 34);
 
         // Act - se ejecuta la operación

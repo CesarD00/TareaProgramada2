@@ -8,6 +8,8 @@ namespace {
 
         // Arange - se configura el escenario
         ProfesionalPorHoras* empleado = new ProfesionalPorHoras("César", "Díaz", "cesardiaz@mail.mail", 45.6, 60);
+        empleado->asignarMontoPorHora(45.6);
+        empleado->asignarHorasLaboradas(60);
 
         // Act - se ejecuta la operación
         double actual = empleado->calcularMontoNeto();

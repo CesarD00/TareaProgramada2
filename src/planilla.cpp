@@ -1,46 +1,44 @@
-#include "arbolEmpleados.h"
+#include "planilla.h"
 #include "empleadoNomina.h"
-#include "empleado.h"
 #include "profesionalPorHoras.h"
 
 #include<iostream>
-#include<istream>
 #include<sstream>
 #include<string>
 #include<iomanip>
 
 using namespace std;
 
-ArbolEmpleados::ArbolEmpleados(int unId, int unTipo, Persona* personaDirector) {
+Planilla::Planilla(int unId, int unTipo, Persona* personaDirector) {
     this->director = new Empleado(unId, unTipo, personaDirector);
     this->indiceEmpleados.insert(pair<int, Empleado*>(unId, this->director));
 }
 
-ArbolEmpleados::ArbolEmpleados() { 
+Planilla::Planilla() { 
     this->director = nullptr;
 }
 
-ArbolEmpleados::~ArbolEmpleados() {
+Planilla::~Planilla() {
     delete this->director;
 }
 
-Empleado* ArbolEmpleados::obtenerEmpleado(int unaId) {
+Empleado* Planilla::obtenerEmpleado(int unaId) {
     Empleado* empleadoEncontrado = this->indiceEmpleados.at(unaId);
     return empleadoEncontrado;
 }
 
-map<int, Empleado*> ArbolEmpleados::obtenerTodosEmpleados() {
+map<int, Empleado*> Planilla::obtenerTodosEmpleados() {
     map<int, Empleado*> todosLosEmpleados = this->indiceEmpleados;
     return todosLosEmpleados;
 }
 
-void ArbolEmpleados::agregarDirector(Empleado* unDirector) {
+void Planilla::agregarDirector(Empleado* unDirector) {
     this->director = unDirector;
     this->indiceEmpleados.insert(pair<int, Empleado*>(unDirector->obtenerId(), this->director));
     this->director->asignarSupervisor(this->director);
 }
 
-void ArbolEmpleados::agregarEmpleado(int unId, int unTipo, Persona* unaPersona, int idSupervisor) {
+void Planilla::agregarEmpleado(int unId, int unTipo, Persona* unaPersona, int idSupervisor) {
     Empleado* nuevoEmpleado = new Empleado(unId, unTipo, unaPersona);
 
     nuevoEmpleado->asignarSupervisor(this->indiceEmpleados.at(idSupervisor));
@@ -50,7 +48,7 @@ void ArbolEmpleados::agregarEmpleado(int unId, int unTipo, Persona* unaPersona, 
     
 }
 
-void ArbolEmpleados::agregarEmpleado(Empleado* nuevoEmpleado, int idSupervisor) {
+void Planilla::agregarEmpleado(Empleado* nuevoEmpleado, int idSupervisor) {
 
     nuevoEmpleado->asignarSupervisor(this->indiceEmpleados.at(idSupervisor));
     this->indiceEmpleados.at(idSupervisor)->agregarEmpleadoASupervisar(nuevoEmpleado);
@@ -60,7 +58,7 @@ void ArbolEmpleados::agregarEmpleado(Empleado* nuevoEmpleado, int idSupervisor) 
 }
 
 
-istream& operator >> (istream &i, ArbolEmpleados* jerarquiaEmpleados) {
+istream& operator >> (istream &i, Planilla* jerarquiaEmpleados) {
     string linea;
     int id;
     int tipo;
@@ -97,7 +95,7 @@ istream& operator >> (istream &i, ArbolEmpleados* jerarquiaEmpleados) {
     return i;        
 }
 
-ostream& operator << (ostream &o, const ArbolEmpleados* jerarquiaEmpleados) {
+ostream& operator << (ostream &o, const Planilla* jerarquiaEmpleados) {
     float subtotal {};
     float monto {};
     float totalImpuestos {};
@@ -125,7 +123,7 @@ ostream& operator << (ostream &o, const ArbolEmpleados* jerarquiaEmpleados) {
 
 }
 
-void ArbolEmpleados::toStreamEntradaNomina(istream &i, ArbolEmpleados* jerarquiaEmpleados) {
+void Planilla::toStreamEntradaNomina(istream &i, Planilla* jerarquiaEmpleados) {
     string linea;
     int id;
     float pago;
@@ -140,7 +138,7 @@ void ArbolEmpleados::toStreamEntradaNomina(istream &i, ArbolEmpleados* jerarquia
     }     
 }
 
-void ArbolEmpleados::toStreamEntradaHoras(istream &i, ArbolEmpleados* jerarquiaEmpleados) {
+void Planilla::toStreamEntradaHoras(istream &i, Planilla* jerarquiaEmpleados) {
     string linea;
     int id;
     float monto;

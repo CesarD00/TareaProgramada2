@@ -6,7 +6,8 @@ namespace {
         /// AAA
 
         // Arange - se configura el escenario
-        EmpleadoNomina* empleado = new EmpleadoNomina("César", "Díaz", "cesardiaz@mail.mail", 4000);
+        EmpleadoNomina* empleado = new EmpleadoNomina("César", "Díaz", "cesardiaz@mail.mail");
+        empleado->asignarPagoMensualBruto(4000);
 
         // Act - se ejecuta la operación
         double actual = empleado->calcularMontoNeto();

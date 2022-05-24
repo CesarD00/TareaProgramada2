@@ -1,5 +1,4 @@
 #include "empleado.h"
-#include "persona.h"
 
 #include<iostream>
 
