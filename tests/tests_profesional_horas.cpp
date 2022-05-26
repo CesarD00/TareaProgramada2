@@ -7,7 +7,7 @@ namespace {
         /// AAA
 
         // Arange - se configura el escenario
-        ProfesionalPorHoras* empleado = new ProfesionalPorHoras("César", "Díaz", "cesardiaz@mail.mail", 45.6, 60);
+        ProfesionalPorHoras* empleado = new ProfesionalPorHoras("César", "Díaz", "cesardiaz@mail.mail");
         empleado->asignarMontoPorHora(45.6);
         empleado->asignarHorasLaboradas(60);
 

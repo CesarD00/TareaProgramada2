@@ -13,6 +13,8 @@ class ProfesionalPorHoras : public Persona{
     ProfesionalPorHoras(string nombreEmpleado, string apellidoEmpleado, string emailEmpleado);
     void asignarMontoPorHora(float monto);
     void asignarHorasLaboradas(float horas);
+    float obtenerMontoPorHora();
+    float obtenerHorasLaboradas();
 
     virtual float calcularMontoNeto();
 

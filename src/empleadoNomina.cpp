@@ -24,6 +24,10 @@ float EmpleadoNomina::obtenerImpuestoRetencion() {
     return this->impuestosRetencion;
 }
 
+float EmpleadoNomina::obtenerPagoMensualBruto() {
+    return this->pagoMensualBruto;
+}
+
 float EmpleadoNomina::calcularMontoNeto(){
     this->impuestosRetencion = this->pagoMensualBruto*0.07;
     return this->pagoMensualBruto - this->impuestosRetencion;

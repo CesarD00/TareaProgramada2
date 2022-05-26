@@ -13,6 +13,7 @@ class EmpleadoNomina : public Persona{
     EmpleadoNomina(string nombreEmpleado, string apellidoEmpleado, string emailEmpleado);   
     void asignarPagoMensualBruto(float pagoBrutoMensual);
     float obtenerImpuestoRetencion();
+    float obtenerPagoMensualBruto();
 
     virtual float calcularMontoNeto();
 

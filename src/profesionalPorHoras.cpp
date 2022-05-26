@@ -27,3 +27,11 @@ void ProfesionalPorHoras::asignarMontoPorHora(float monto) {
 void ProfesionalPorHoras::asignarHorasLaboradas(float horas) {
     this->horasLaboradas = horas;
 }
+
+float ProfesionalPorHoras::obtenerHorasLaboradas() {
+    return this->horasLaboradas;
+}
+
+float ProfesionalPorHoras::obtenerMontoPorHora() { 
+    return this->montoPorHora;
+}
