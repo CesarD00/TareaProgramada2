@@ -57,42 +57,31 @@ void Planilla::agregarEmpleado(Empleado* nuevoEmpleado, int idSupervisor) {
 
 }
 
-
-istream& operator >> (istream &i, Planilla* jerarquiaEmpleados) {
+void Planilla::toStreamEntrada(istream &entradaPersonas, istream &entradaNomina, istream &entradaHoras){
     string linea;
     int id;
-    int tipo;
     string nombre;
     string apellido;
     string email;
+    int tipo;
     int idSupervisor;
 
-    Empleado* nuevoEmpleado;
-
-    while (std::getline(i, linea)) {
+    while (getline(entradaPersonas, linea)) {
         istringstream streamLinea(linea);
 
         streamLinea >> id >> nombre >> apellido >> email >> tipo >> idSupervisor;
 
-        switch(tipo) {
-            case 1:
-                nuevoEmpleado = new Empleado(id, tipo, new EmpleadoNomina(nombre, apellido, email));
-                break;
-            case 2:
-                nuevoEmpleado = new Empleado(id, tipo, new ProfesionalPorHoras(nombre, apellido, email));
-                break;    
-        }
+        Empleado* nuevoEmpleado = new Empleado();
 
-        if(id == idSupervisor) {
-            jerarquiaEmpleados->agregarDirector(nuevoEmpleado);
+        nuevoEmpleado->toStreamEntrada(nombre, apellido, email, tipo, entradaNomina, entradaHoras);
+
+        if(nuevoEmpleado->obtenerId() == idSupervisor) {
+            this->agregarDirector(nuevoEmpleado);
         }
         else{
-            jerarquiaEmpleados->agregarEmpleado(nuevoEmpleado, idSupervisor);
+            this->agregarEmpleado(nuevoEmpleado, idSupervisor);
         }
-        
-    }
-
-    return i;        
+    }      
 }
 
 ostream& operator << (ostream &o, const Planilla* jerarquiaEmpleados) {
@@ -119,37 +108,6 @@ ostream& operator << (ostream &o, const Planilla* jerarquiaEmpleados) {
 
     return o;
 
-}
-
-void Planilla::toStreamEntradaNomina(istream &i, Planilla* jerarquiaEmpleados) {
-    string linea;
-    int id;
-    float pago;
-
-    while(std::getline(i, linea)) {
-        istringstream streamLinea(linea);
-
-        streamLinea >> id >> pago;
-        static_cast< EmpleadoNomina * >(jerarquiaEmpleados->indiceEmpleados.at(id)->obtenerDatosPersona())->asignarPagoMensualBruto(pago);
-  
-    }     
-}
-
-void Planilla::toStreamEntradaHoras(istream &i, Planilla* jerarquiaEmpleados) {
-    string linea;
-    int id;
-    float monto;
-    float horas;
-    
-    while(std::getline(i, linea)) {
-        istringstream streamLinea(linea);
-
-        streamLinea >> id >> monto >> horas;
-
-        static_cast< ProfesionalPorHoras * >(jerarquiaEmpleados->indiceEmpleados.at(id)->obtenerDatosPersona())->asignarMontoPorHora(monto);
-        static_cast< ProfesionalPorHoras * >(jerarquiaEmpleados->indiceEmpleados.at(id)->obtenerDatosPersona())->asignarHorasLaboradas(horas);
-  
-    }    
 }
 
 

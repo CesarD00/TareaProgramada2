@@ -17,6 +17,7 @@ class Empleado {
 
     public:
     Empleado(int unaId, int unTipo, Persona* datosPersonales);
+    Empleado();
     ~Empleado();
 
     void asignarSupervisor(Empleado* unSupervisor);
@@ -27,6 +28,7 @@ class Empleado {
     vector<Empleado*> obtenerEmpleadosASupervisar();
     Persona* obtenerDatosPersona();
 
+    void toStreamEntrada(string unNombre, string unApellido, string unEmail, int unTipo, istream &entradaNomina, istream &entradaHoras);
     friend ostream& operator << (ostream &o, const Empleado* empleado);
     
 };

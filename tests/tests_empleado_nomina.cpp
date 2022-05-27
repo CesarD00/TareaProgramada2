@@ -18,23 +18,6 @@ namespace {
         EXPECT_FLOAT_EQ(actual, esperada);
     }   
 
-    TEST(Empleado_Nomina_Test, Asignar_Obtener_Pago_Mensual_Bruto) {
-        /// AAA
-
-        // Arange - se configura el escenario
-        EmpleadoNomina* empleado = new EmpleadoNomina("César", "Díaz", "cesardiaz@mail.mail");
-        empleado->asignarPagoMensualBruto(4000);
-
-        // Act - se ejecuta la operación
-        double actual = empleado->obtenerPagoMensualBruto();
-        double esperada = 4000;
-
-        delete empleado;
-
-        // Assert - se validan los resultados
-        EXPECT_FLOAT_EQ(actual, esperada);
-    }
-
     TEST(Empleado_Nomina_Test, Obtener_Impuestos_Retener) {
         /// AAA
 

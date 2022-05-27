@@ -19,9 +19,7 @@ Reporte::Reporte() {
 void Reporte::generarReporte() {
     Planilla* jerarquiaEmpleados = new Planilla();
 
-    *(this->streamEntradaPersonas) >> jerarquiaEmpleados;
-    jerarquiaEmpleados->toStreamEntradaNomina(*(this->streamEntradaNomina), jerarquiaEmpleados);
-    jerarquiaEmpleados->toStreamEntradaHoras(*(this->streamEntradaProfesionalHoras), jerarquiaEmpleados);
+    jerarquiaEmpleados->toStreamEntrada(*(this->streamEntradaPersonas), *(this->streamEntradaNomina), *(this->streamEntradaProfesionalHoras));
 
     *(this->streamSalidaReporte) << jerarquiaEmpleados;
 

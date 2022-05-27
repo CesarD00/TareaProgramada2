@@ -3,8 +3,10 @@
 
 #include "empleado.h"
 #include "persona.h"
-#include <istream>
 #include <map>
+
+using namespace std;
+
 
 class Planilla {
     
@@ -22,13 +24,8 @@ class Planilla {
     Empleado* obtenerEmpleado(int unaId);
     map<int, Empleado*> obtenerTodosEmpleados();
 
-    void toStreamEntradaNomina(istream &i, Planilla* jerarquiaEmpleados);
-    void toStreamEntradaHoras(istream &i, Planilla* jerarquiaEmpleados);
-
-    friend istream& operator >> (istream &i, Planilla* jerarquiaEmpleados);
+    void toStreamEntrada(istream &entradaPersonas, istream &entradaNomina, istream &entradaHoras);
     friend ostream& operator << (ostream &o, const Planilla* jerarquiaEmpleados);
-
-    
 
 };
 

@@ -43,57 +43,5 @@ namespace {
         // Assert - se validan los resultados
         EXPECT_EQ(actual, esperada);
     }    
-
-    TEST(Planilla_Tests, To_Stream_Empleado_Nomina) {
-        /// AAA
-
-        // Arange - se configura el escenario
-        istringstream i("1 4000\n2 3500");
-        Planilla* empleados = new Planilla(1, 1, new EmpleadoNomina("César", "Díaz", "cesardiaz@mail.mail"));
-        empleados->agregarEmpleado(new Empleado(2, 1, new EmpleadoNomina("Alejandro", "Fernández", "alejfernandez@mail.mail")), 1);
-
-
-        // Act - se ejecuta la operación
-
-        empleados->toStreamEntradaNomina(i, empleados);
-
-        float montoActual1 = empleados->obtenerEmpleado(1)->obtenerDatosPersona()->calcularMontoNeto();
-        float montoEsperado1 = 3720;
-
-        float montoActual2 = empleados->obtenerEmpleado(2)->obtenerDatosPersona()->calcularMontoNeto();
-        float montoEsperado2 = 3255;
-        
-        delete empleados;
-
-        // Assert - se validan los resultados
-        EXPECT_FLOAT_EQ(montoActual1, montoEsperado1);
-        EXPECT_FLOAT_EQ(montoActual2, montoEsperado2);
-    } 
-
-    TEST(Planilla_Tests, To_Stream_Profesional_Horas) {
-        /// AAA
-
-        // Arange - se configura el escenario
-        istringstream i("1 40 48\n2 50.76 45");
-        Planilla* empleados = new Planilla(1, 2, new ProfesionalPorHoras("César", "Díaz", "cesardiaz@mail.mail"));
-        empleados->agregarEmpleado(new Empleado(2, 2, new ProfesionalPorHoras("Alejandro", "Fernández", "alejfernandez@mail.mail")), 1);
-
-
-        // Act - se ejecuta la operación
-
-        empleados->toStreamEntradaHoras(i, empleados);
-
-        float montoActual1 = empleados->obtenerEmpleado(1)->obtenerDatosPersona()->calcularMontoNeto();
-        float montoEsperado1 = 1920;
-        float montoActual2 = empleados->obtenerEmpleado(2)->obtenerDatosPersona()->calcularMontoNeto();
-        float montoEsperado2 = 2284.2;
-
-        delete empleados;
-
-        // Assert - se validan los resultados
-        EXPECT_FLOAT_EQ(montoActual1, montoEsperado1);
-        EXPECT_FLOAT_EQ(montoActual2, montoEsperado2);
-    } 
-
 }      
 
