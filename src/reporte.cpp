@@ -27,5 +27,4 @@ void Reporte::generarReporte() {
 
     delete jerarquiaEmpleados;
 
-
 }

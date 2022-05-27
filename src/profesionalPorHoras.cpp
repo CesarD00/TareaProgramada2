@@ -35,3 +35,7 @@ float ProfesionalPorHoras::obtenerHorasLaboradas() {
 float ProfesionalPorHoras::obtenerMontoPorHora() { 
     return this->montoPorHora;
 }
+
+float ProfesionalPorHoras::obtenerImpuestoRetencion() {
+    return 0;
+}

@@ -14,6 +14,7 @@ class Persona {
 
     public:
     virtual float calcularMontoNeto() = 0;
+    virtual float obtenerImpuestoRetencion() = 0;
 
     string obtenerNombre(){
         return this->nombre;

@@ -17,6 +17,7 @@ class ProfesionalPorHoras : public Persona{
     float obtenerHorasLaboradas();
 
     virtual float calcularMontoNeto();
+    virtual float obtenerImpuestoRetencion();
 
 };
 

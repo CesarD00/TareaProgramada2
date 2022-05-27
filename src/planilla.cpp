@@ -107,9 +107,7 @@ ostream& operator << (ostream &o, const Planilla* jerarquiaEmpleados) {
 
         o << empleado.second << monto << endl;
 
-        if(empleado.second->obtenerTipo() == 1){
-            totalImpuestos = totalImpuestos + static_cast< EmpleadoNomina * >(empleado.second->obtenerDatosPersona())->obtenerImpuestoRetencion();
-        }
+        totalImpuestos = totalImpuestos + empleado.second->obtenerDatosPersona()->obtenerImpuestoRetencion();
 
         subtotal = subtotal + monto;
     }
@@ -132,7 +130,6 @@ void Planilla::toStreamEntradaNomina(istream &i, Planilla* jerarquiaEmpleados) {
         istringstream streamLinea(linea);
 
         streamLinea >> id >> pago;
-
         static_cast< EmpleadoNomina * >(jerarquiaEmpleados->indiceEmpleados.at(id)->obtenerDatosPersona())->asignarPagoMensualBruto(pago);
   
     }     
