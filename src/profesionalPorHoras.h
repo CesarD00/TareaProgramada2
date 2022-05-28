@@ -10,6 +10,7 @@ class ProfesionalPorHoras : public Persona{
     float horasLaboradas;
 
     public:
+    ProfesionalPorHoras(string nombreEmpleado, string apellidoEmpleado, string emailEmpleado, float monto, float horas);
     ProfesionalPorHoras(string nombreEmpleado, string apellidoEmpleado, string emailEmpleado);
 
     virtual float calcularMontoNeto();

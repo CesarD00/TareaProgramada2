@@ -1,5 +1,13 @@
 #include "empleadoNomina.h"
 
+EmpleadoNomina::EmpleadoNomina(string nombreEmpleado, string apellidoEmpleado, string emailEmpleado, float unPagoMensual) {
+    this->nombre = nombreEmpleado;
+    this->apellido = apellidoEmpleado;
+    this->email = emailEmpleado;
+    this->pagoMensualBruto = unPagoMensual; 
+    this->impuestosRetencion = 0;
+}
+
 EmpleadoNomina::EmpleadoNomina(string nombreEmpleado, string apellidoEmpleado, string emailEmpleado){
     this->nombre = nombreEmpleado;
     this->apellido = apellidoEmpleado;

@@ -11,7 +11,8 @@ class EmpleadoNomina : public Persona{
     float pagoMensualBruto;
     float impuestosRetencion;
 
-    public: 
+    public:
+    EmpleadoNomina(string nombreEmpleado, string apellidoEmpleado, string emailEmpleado, float unPagoMensual);  
     EmpleadoNomina(string nombreEmpleado, string apellidoEmpleado, string emailEmpleado);   
 
     virtual float calcularMontoNeto();
