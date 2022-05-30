@@ -22,7 +22,6 @@ class Planilla {
     void agregarEmpleado(int unId, int unTipo, Persona* unaPersona, int idSupervisor);
     void agregarEmpleado(Empleado* nuevoEmpleado, int idSupervisor);
     Empleado* obtenerEmpleado(int unaId);
-    map<int, Empleado*> obtenerTodosEmpleados();
 
     void toStreamEntrada(istream &entradaPersonas, istream &entradaNomina, istream &entradaHoras);
     friend ostream& operator << (ostream &o, const Planilla* jerarquiaEmpleados);

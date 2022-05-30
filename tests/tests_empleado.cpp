@@ -75,5 +75,35 @@ namespace {
         EXPECT_EQ(empleado, esperado);  
     }
 
+    TEST(Empleado_Tests, Stream_Entrada_Empleado) {
+        /// AAA
+
+        // Arange - se configura el escenario
+        istringstream entradaNomina("1 4000");
+        istringstream entradaProfesionalHoras("2 32.5 50");
+
+        Empleado* empleado1 = new Empleado();
+        Empleado* empleado2 = new Empleado();
+
+        // Act - se ejecuta la operación
+
+        empleado1->toStreamEntrada("César", "Díaz", "cesardiaz@mail.mail", 1, entradaNomina, entradaProfesionalHoras);
+        empleado2->toStreamEntrada("Berny", "Calderón", "bcald@mail.mail", 2, entradaNomina, entradaProfesionalHoras);
+
+        float montoActual1 = empleado1->obtenerDatosPersona()->calcularMontoNeto();
+        float montoActual2 = empleado2->obtenerDatosPersona()->calcularMontoNeto();
+
+        float montoEsperado1 = 3720;
+        float montoEsperado2 = 1625;
+
+        delete empleado2;
+        delete empleado1;
+
+        // Assert - se validan los resultados
+        EXPECT_FLOAT_EQ(montoActual1, montoEsperado1); 
+        EXPECT_FLOAT_EQ(montoActual2, montoEsperado2); 
+    }
+
+
     
 }

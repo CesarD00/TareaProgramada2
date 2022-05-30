@@ -27,6 +27,8 @@ namespace {
                             string("\nSubtotal,Total_Impuestos_A_Retener,Total\n") + 
                             string("5345.00,280.00,5625.00");
 
+        delete reporteSalario;
+
         // Assert - se validan los resultados
         
         EXPECT_EQ(actual, esperado);

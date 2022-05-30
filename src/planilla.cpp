@@ -27,11 +27,6 @@ Empleado* Planilla::obtenerEmpleado(int unaId) {
     return empleadoEncontrado;
 }
 
-map<int, Empleado*> Planilla::obtenerTodosEmpleados() {
-    map<int, Empleado*> todosLosEmpleados = this->indiceEmpleados;
-    return todosLosEmpleados;
-}
-
 void Planilla::agregarDirector(Empleado* unDirector) {
     this->director = unDirector;
     this->indiceEmpleados.insert(pair<int, Empleado*>(unDirector->obtenerId(), this->director));

@@ -43,5 +43,33 @@ namespace {
         // Assert - se validan los resultados
         EXPECT_EQ(actual, esperada);
     }    
+
+    TEST(Planilla_Tests, Stream_Entrada_Planilla) {
+        /// AAA
+
+        // Arange - se configura el escenario
+        
+        istringstream entradaPersonas("1 César Díaz cesardiaz@mail.mail 1 1\n2 Berny Calderón bcald@mail.mail 2 1");
+        istringstream entradaNomina("1 4000");
+        istringstream entradaProfesionalHoras("2 32.5 50");
+
+        Planilla* planillaEmpleados = new Planilla();
+
+        // Act - se ejecuta la operación
+
+        planillaEmpleados->toStreamEntrada(entradaPersonas, entradaNomina, entradaProfesionalHoras);
+
+        float montoActual1 = planillaEmpleados->obtenerEmpleado(1)->obtenerDatosPersona()->calcularMontoNeto();
+        float montoActual2 = planillaEmpleados->obtenerEmpleado(2)->obtenerDatosPersona()->calcularMontoNeto();
+
+        float montoEsperado1 = 3720;
+        float montoEsperado2 = 1625;
+
+        delete planillaEmpleados;
+
+        // Assert - se validan los resultados
+        EXPECT_FLOAT_EQ(montoActual1, montoEsperado1); 
+        EXPECT_FLOAT_EQ(montoActual2, montoEsperado2); 
+    }    
 }      
 

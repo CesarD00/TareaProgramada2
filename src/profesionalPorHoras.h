@@ -2,7 +2,7 @@
 #define PROFESIONALPORHORAS_H
 
 #include "persona.h"
-#include<istream>
+#include <iostream>
 
 class ProfesionalPorHoras : public Persona{
     

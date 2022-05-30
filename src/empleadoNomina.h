@@ -2,7 +2,7 @@
 #define EMPLEADONOMINA_H
 
 #include "persona.h"
-#include<istream>
+#include <iostream>
 
 using namespace std;
 

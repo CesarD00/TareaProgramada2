@@ -1,8 +1,7 @@
 #ifndef REPORTE_H
 #define REPORTE_H
 
-#include<istream>
-#include<ostream>
+#include<iostream>
 
 using namespace std;
 
