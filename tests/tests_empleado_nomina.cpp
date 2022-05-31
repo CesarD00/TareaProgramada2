@@ -9,8 +9,8 @@ namespace {
         EmpleadoNomina* empleado = new EmpleadoNomina("César", "Díaz", "cesardiaz@mail.mail", 4000);
 
         // Act - se ejecuta la operación
-        double actual = empleado->calcularMontoNeto();
-        double esperada = 3720;
+        float actual = empleado->calcularMontoNeto();
+        float esperada = 3720;
 
         delete empleado;
 
@@ -28,8 +28,8 @@ namespace {
 
         empleado->calcularMontoNeto();
 
-        double actual = empleado->obtenerImpuestoRetencion();
-        double esperada = 315;
+        float actual = empleado->obtenerImpuestoRetencion();
+        float esperada = 315;
 
         delete empleado;
 

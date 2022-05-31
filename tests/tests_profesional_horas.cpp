@@ -10,8 +10,8 @@ namespace {
         ProfesionalPorHoras* empleado = new ProfesionalPorHoras("César", "Díaz", "cesardiaz@mail.mail", 45.6, 60);
 
         // Act - se ejecuta la operación
-        double actual = empleado->calcularMontoNeto();
-        double esperada = 2736;
+        float actual = empleado->calcularMontoNeto();
+        float esperada = 2736;
 
         delete empleado;
 
@@ -27,8 +27,8 @@ namespace {
 
         // Act - se ejecuta la operación
 
-        double actual = empleado->obtenerImpuestoRetencion();
-        double esperada = 0;
+        float actual = empleado->obtenerImpuestoRetencion();
+        float esperada = 0;
 
         delete empleado;
 
