@@ -85,8 +85,6 @@ void Empleado::toStreamEntrada(string unNombre, string unApellido, string unEmai
              
     }
 
-    
-
 }
 
 ostream& operator << (ostream &o, const Empleado* empleado) {

@@ -12,10 +12,6 @@ Reporte::Reporte(istream* entradaPersonas, istream* entradaNomina, istream* entr
     this->streamSalidaReporte = salidaReporte;
 }
 
-Reporte::Reporte() {
-    
-}
-
 void Reporte::generarReporte() {
     Planilla* jerarquiaEmpleados = new Planilla();
 

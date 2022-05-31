@@ -22,10 +22,10 @@ int main(){
     delete reporteEmpleados;
 
     reporte.close();
-    archivoPersonas.close();
-    archivoNomina.close();
     archivoHorasTrabajadas.close();
-
-    return 0;
+    archivoNomina.close();
+    archivoPersonas.close();
     
+    return 0;
+
 }
